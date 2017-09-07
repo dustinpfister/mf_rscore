@@ -58,7 +58,8 @@ var rs = (function () {
                     y : this.ps.units[0].y,
                     delta : Math.floor(3.5 * d.hellPer + .5),
                     fireRate : 1000,
-                    mt : 1 + 9 * d.hellPer
+                    mt : 1 + 9 * d.hellPer,
+                    ai_script : swai_stumpy
 
                 });
 
@@ -202,7 +203,7 @@ var rs = (function () {
 
                 x : this.ps.units[0].x + 200,
                 y : this.ps.units[0].y,
-				a : Math.PI,
+                a : Math.PI,
                 delta : 0,
                 fireRate : 1000,
                 mt : 3,
