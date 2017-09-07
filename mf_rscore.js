@@ -204,7 +204,12 @@ var rs = (function () {
                 y : this.ps.units[0].y,
                 delta : 0,
                 fireRate : 1000,
-                mt : 10
+                mt : 10,
+				ai_script : function(){
+					
+					_.lo('yeah');
+					
+				}
 
             });
 
