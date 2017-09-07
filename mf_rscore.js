@@ -203,7 +203,7 @@ var rs = (function () {
 
                 x : this.ps.units[0].x + 200,
                 y : this.ps.units[0].y,
-                a : Math.PI,
+                a : Math.PI * .5,
                 delta : 0,
                 fireRate : 1000,
                 mt : 3,
