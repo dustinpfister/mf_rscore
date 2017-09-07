@@ -202,14 +202,11 @@ var rs = (function () {
 
                 x : this.ps.units[0].x + 200,
                 y : this.ps.units[0].y,
+				a : Math.PI,
                 delta : 0,
                 fireRate : 1000,
-                mt : 10,
-				ai_script : function(){
-					
-					_.lo('yeah');
-					
-				}
+                mt : 3,
+                ai_script : swai_stumpy
 
             });
 
