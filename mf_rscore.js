@@ -1,7 +1,16 @@
 /*
  *
  *   red space core game logic
- *
+
+todo:
+
+ * tweek enemy max turn in a way that still gives the player a chance to out turn them
+ * enemy's purged if to far away from the player
+ * create a new project called mf_swunits (space war units)
+ * create a new project called mf_swai (space war ai)
+ * one or more ai scripts that can be used with mf_swunits
+
+
  */
 
 var rs = (function () {
@@ -163,42 +172,9 @@ var rs = (function () {
             C.canvas.height = 480;
             C.cls();
 
-            // sections
-            //S.set(1280, 960, 20, 20);
-            //S.ls(vp.x, vp.y, vp.w, vp.h);
-
             // set hell dist based on sections
-            //this.d.hellDist = S.H / 2 * S.sh; //S.sw + S.sh / 2 * 20;
 
             this.d.hellDist = 10000;
-
-            // pl array for each section
-            /*
-            S.secs.forEach(function (sec) {
-
-            sec.pl = [];
-
-            });
-             */
-            /*
-            var sec = S.getPos(-32, -32);
-
-            // home world
-            /
-            sec.pl.push(new Planet({
-
-            x : -64,
-            y : -64
-
-            }));
-
-            // inner ring
-            makeRing(this.d.safeDist, 20);
-
-            // outer ring
-            makeRing(9000, 250);
-
-             */
 
             // the New Player Ship Collection that will replace playerObj, and pShots
             this.ps = new ShipCollection({
@@ -220,6 +196,17 @@ var rs = (function () {
             // set enemy collections for each collection
             this.ps.enemys = this.es;
             this.es.enemys = this.ps;
+
+            // spawn an enemy
+            this.es.addShip({
+
+                x : this.ps.units[0].x + 200,
+                y : this.ps.units[0].y,
+                delta : 0,
+                fireRate : 1000,
+                mt : 10
+
+            });
 
         },
 
