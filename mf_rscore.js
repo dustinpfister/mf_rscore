@@ -207,7 +207,7 @@ var rs = (function () {
                 delta : 0,
                 fireRate : 1000,
                 mt : 3,
-                ai_script : swai_stumpy
+                ai_script : swai_smug
 
             });
 
