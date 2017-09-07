@@ -206,7 +206,7 @@ var rs = (function () {
                 a : Math.PI * .5,
                 delta : 0,
                 fireRate : 1000,
-                mt : 3,
+                mt : 2,
                 ai_script : swai_smug
 
             });
