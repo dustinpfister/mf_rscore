@@ -89,19 +89,26 @@ var rscore_canvas = function () {
             obj = {}
 
         }
-		
-		ctx.textAlign = 'left';
+        ctx.textAlign = 'left';
         C.drawInfo([
 
-                'D : ' + rs.d.d.toFixed(2),
-                'map pos: ' + vp.x + ',' + vp.y,
-                'player hp: ' + obj.hp + '/' + obj.maxHP,
-                'hellDist: ' + rs.d.hellDist,
-                'hellPer: ' + rs.d.hellPer,
-                'nextSpawn: ' + (rs.d.spawnRate - (new Date() - rs.d.lastSpawn)),
-                'spawnRate: ' + rs.d.spawnRate
+                'e count: ' + rs.es.units.length
 
             ], 10, 100);
+        /*
+        ctx.textAlign = 'left';
+        C.drawInfo([
+
+        'D : ' + rs.d.d.toFixed(2),
+        'map pos: ' + vp.x + ',' + vp.y,
+        'player hp: ' + obj.hp + '/' + obj.maxHP,
+        'hellDist: ' + rs.d.hellDist,
+        'hellPer: ' + rs.d.hellPer,
+        'nextSpawn: ' + (rs.d.spawnRate - (new Date() - rs.d.lastSpawn)),
+        'spawnRate: ' + rs.d.spawnRate
+
+        ], 10, 100);
+         */
 
     });
 
