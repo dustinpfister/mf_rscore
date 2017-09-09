@@ -68,7 +68,7 @@ var rscore_canvas = function () {
 
             var obj = vp.makeVPRel(sh);
 
-            ctx.fillStyle = '#af0000';
+            ctx.fillStyle = '#ffffff';
             ctx.fillRect(obj.x, obj.y, obj.w, obj.h);
 
         });
