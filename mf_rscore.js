@@ -69,6 +69,32 @@ var rs = (function () {
 
         }
 
+    },
+
+    // check all enemy units
+    eCheck = function () {
+
+        // kill all enemy units if in safe zone
+        if (rs.d.hellPer === 0) {
+
+            rs.es.units.forEach(function (e) {
+
+                e.hp = 0;
+
+            });
+
+        }
+
+    },
+
+    // new player ship
+    NPS = function () {
+
+        rs.ps.addShip({
+
+            delta : 0
+
+        });
     };
 
     api = {
@@ -110,7 +136,9 @@ var rs = (function () {
                 });
 
             // add the single player ship
-            this.ps.addShip();
+            //this.ps.addShip();
+
+            NPS();
 
             // enemy ships collection
             this.es = new ShipCollection({
@@ -148,7 +176,8 @@ var rs = (function () {
                 _.l('player dead');
 
                 // add the single player ship
-                this.ps.addShip();
+                //this.ps.addShip();
+                NPS();
 
             } else {
 
@@ -297,6 +326,9 @@ var rs = (function () {
 
                 }
 
+				// run enemy checks
+				eCheck();
+				
                 this.ps.update();
                 this.es.update();
 
