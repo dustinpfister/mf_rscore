@@ -71,81 +71,6 @@ var rs = (function () {
 
     };
 
-    // make a planet ring at distance with count planets
-    var makeRing = function (d, c) {
-
-        var sec,
-        x,
-        y,
-        r,
-        i = 0;
-
-        d = d || 1000;
-        c = c || 10;
-        while (i < c) {
-
-            r = _.tau / c * i;
-            x = Math.cos(r) * d - 64;
-            y = Math.sin(r) * d - 64;
-
-            sec = S.getPos(x, y);
-
-            // home world
-            sec.pl.push(new Planet({
-
-                    x : x,
-                    y : y
-
-                }));
-
-            i += 1;
-        }
-
-    };
-
-    var onPl = function (sec, obj) {
-
-        var i;
-        if (sec) {
-
-            if (sec.pl) {
-
-                i = sec.pl.length;
-                while (i--) {
-
-                    if (_.b(sec.pl[i], obj)) {
-
-                        return sec.pl[i];
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        return false;
-
-    };
-
-    var Planet = function (obj) {
-
-        obj = obj || {};
-
-        Unit.call(this, obj);
-
-        this.w = 128;
-        this.h = 128;
-        this.hw = 64;
-        this.hh = 64;
-
-        this.f = '#00ffaf';
-
-    };
-
-    Planet.prototype = new Unit();
-
     api = {
 
         d : {
@@ -272,17 +197,6 @@ var rs = (function () {
 
                 }
 
-                /*
-                // get planet
-                var pl = onPl(S.getPos(obj.x, obj.y), obj);
-
-                this.cp = {};
-                if (pl) {
-
-                this.cp = pl;
-
-                }
-                 */
 
                 this.ps.update();
                 this.es.update();
