@@ -23,6 +23,7 @@ var rs = (function () {
 
         var roll,
         d = this.d,
+        r,
         per;
 
         // update distance
@@ -30,6 +31,7 @@ var rs = (function () {
 
         // find hell percent
         d.hellPer = (d.d - d.safeDist) / d.hellDist;
+        //d.hellPer = 1;
 
         // hell percent rules
         if (d.hellPer < 0) {
@@ -51,11 +53,13 @@ var rs = (function () {
             // if roll is less than hell percent
             if (roll < d.hellPer) {
 
+                r = _.r(obj.a - .5, obj.a + .5);
+
                 // spawn an enemy
                 this.es.addShip({
 
-                    x : obj.x + 200,
-                    y : obj.y,
+                    x : Math.cos(r) * 500 + obj.x,
+                    y : Math.sin(r) * 500 + obj.y,
                     delta : Math.floor(3.5 * d.hellPer + .5),
                     fireRate : 1000,
                     mt : 1 + 9 * d.hellPer,
@@ -99,7 +103,8 @@ var rs = (function () {
 
         rs.ps.addShip({
 
-            delta : 0
+            delta : 0,
+            a : Math.PI * 1.5
 
         });
     };
@@ -157,20 +162,20 @@ var rs = (function () {
             // set enemy collections for each collection
             this.ps.enemys = this.es;
             this.es.enemys = this.ps;
-
+            /*
             // spawn an enemy
             this.es.addShip({
 
-                x : this.ps.units[0].x + 200,
-                y : this.ps.units[0].y,
-                a : Math.PI * .5,
-                delta : 0,
-                fireRate : 1000,
-                mt : 2,
-                ai_script : swai_smug
+            x : this.ps.units[0].x + 200,
+            y : this.ps.units[0].y,
+            a : Math.PI * .5,
+            delta : 0,
+            fireRate : 1000,
+            mt : 2,
+            ai_script : swai_smug
 
             });
-
+             */
         },
 
         tick : function () {
@@ -244,76 +249,7 @@ var rs = (function () {
 
                 });
 
-                /*
-                if (kc.s('W')) {
-
-
-                _.l('wtf');
-
-                obj.delta += 1;
-
-                }
-
-
-                if (kc.s('D')) {
-
-
-                _.l('wtf');
-
-                obj.delta -= 1;
-
-
-                }
-
-                //obj.delta = obj.delta % 3;
-                /*
-                if (obj.delta > 3) {
-
-                obj.delta = 3;
-
-                }
-
-                if (obj.delta < 0) {
-
-                obj.delta = 0;
-
-                }
-                 */
-
                 obj.step();
-
-                /*
-                var d = kc.d();
-
-                if (d >= 0) {
-
-                // new _.asd method works great
-                if (_.asd(obj.a, d) == -1) {
-
-                obj.a -= Math.PI / 100;
-
-                } else {
-
-                obj.a += Math.PI / 100;
-                }
-
-                obj.step();
-                }
-
-                //vp.lookAt(x, y);
-
-                vp.x = obj.x - vp.w / 2;
-                vp.y = obj.y - vp.h / 2;
-
-                //S.ls(vp.x, vp.y, vp.w, vp.h);
-
-                // fire shots
-                if (kc.keys[186]) {
-
-                obj.shoot();
-
-                }
-                 */
 
                 if (kc.keys[49]) {
 
