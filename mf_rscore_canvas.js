@@ -73,25 +73,36 @@ var rscore_canvas = function () {
 
         });
 
+        // hell bar
+        ctx.fillStyle = '#afafaf';
+        ctx.fillRect(220, 10, 200, 20);
+        ctx.fillStyle = '#ff0000';
+        ctx.fillRect(220, 10, rs.d.hellPer * 200, 20);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.textBaseline = 'top';
+        ctx.textAlign = 'center';
+        ctx.fillText('Hell', 320, 10);
+
+        var obj = rs.ps.units[0];
+        if (obj === undefined) {
+            obj = {}
+
+        }
+		
+		ctx.textAlign = 'left';
+        C.drawInfo([
+
+                'D : ' + rs.d.d.toFixed(2),
+                'map pos: ' + vp.x + ',' + vp.y,
+                'player hp: ' + obj.hp + '/' + obj.maxHP,
+                'hellDist: ' + rs.d.hellDist,
+                'hellPer: ' + rs.d.hellPer,
+                'nextSpawn: ' + (rs.d.spawnRate - (new Date() - rs.d.lastSpawn)),
+                'spawnRate: ' + rs.d.spawnRate
+
+            ], 10, 100);
+
     });
-
-    var obj = rs.ps.units[0];
-    if (obj === undefined) {
-        obj = {}
-
-    }
-    C.drawInfo([
-
-            'D : ' + rs.d.d.toFixed(2),
-            'map pos: ' + vp.x + ',' + vp.y,
-            'player hp: ' + obj.hp + '/' + obj.maxHP,
-            'hellDist: ' + rs.d.hellDist,
-            'hellPer: ' + rs.d.hellPer,
-            'nextSpawn: ' + (rs.d.spawnRate - (new Date() - rs.d.lastSpawn)),
-            'spawnRate: ' + rs.d.spawnRate
-
-        ], 10, 20);
-
-    //C.drawInfo([currentPl.id || '']);
 
 };
