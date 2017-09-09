@@ -74,16 +74,23 @@ var rs = (function () {
     // check all enemy units
     eCheck = function () {
 
-        // kill all enemy units if in safe zone
-        if (rs.d.hellPer === 0) {
+        // for all enemy's
+        rs.es.units.forEach(function (e) {
 
-            rs.es.units.forEach(function (e) {
+            // death if player is in safe zone
+            if (rs.d.hellPer === 0) {
+
+                e.hp = 0;
+            }
+
+            // death if far away
+            if (e.dtt > 500) {
 
                 e.hp = 0;
 
-            });
+            }
 
-        }
+        });
 
     },
 
@@ -326,9 +333,9 @@ var rs = (function () {
 
                 }
 
-				// run enemy checks
-				eCheck();
-				
+                // run enemy checks
+                eCheck();
+
                 this.ps.update();
                 this.es.update();
 
