@@ -154,21 +154,120 @@ var rs = (function () {
 
                 distTick.call(this, obj);
 
+                // center viewport over player object
+                vp.x = obj.x - vp.w / 2;
+                vp.y = obj.y - vp.h / 2;
+
+                kc.s(['W', 'S', 'A', 'D', 'L'], function (keys) {
+
+                    // W
+                    if (keys[0]) {
+
+                        _.l('w');
+
+                        obj.delta += .1;
+
+                    }
+
+                    // S
+                    if (keys[1]) {
+
+                        _.l('s');
+
+                        obj.delta -= .1;
+                    }
+
+                    // A
+                    if (keys[2]) {
+
+                        _.l(obj.maxTurn);
+                        obj.a += Math.PI / 20;
+
+                    }
+
+                    // D
+                    if (keys[3]) {
+
+                        _.l('d');
+                        obj.a -= Math.PI / 20;
+                    }
+
+                    // ;
+                    if (keys[4]) {
+
+                        _.l('L');
+                        obj.shoot();
+
+                    }
+
+                    if (obj.delta > 3) {
+
+                        obj.delta = 3;
+
+                    }
+
+                    if (obj.delta < 0) {
+
+                        obj.delta = 0;
+
+                    }
+
+                });
+
+                /*
+                if (kc.s('W')) {
+
+
+                _.l('wtf');
+
+                obj.delta += 1;
+
+                }
+
+
+                if (kc.s('D')) {
+
+
+                _.l('wtf');
+
+                obj.delta -= 1;
+
+
+                }
+
+                //obj.delta = obj.delta % 3;
+                /*
+                if (obj.delta > 3) {
+
+                obj.delta = 3;
+
+                }
+
+                if (obj.delta < 0) {
+
+                obj.delta = 0;
+
+                }
+                 */
+
+                obj.step();
+
+                /*
                 var d = kc.d();
 
                 if (d >= 0) {
 
-                    // new _.asd method works great
-                    if (_.asd(obj.a, d) == -1) {
+                // new _.asd method works great
+                if (_.asd(obj.a, d) == -1) {
 
-                        obj.a -= Math.PI / 100;
+                obj.a -= Math.PI / 100;
 
-                    } else {
+                } else {
 
-                        obj.a += Math.PI / 100;
-                    }
+                obj.a += Math.PI / 100;
+                }
 
-                    obj.step();
+                obj.step();
                 }
 
                 //vp.lookAt(x, y);
@@ -181,9 +280,10 @@ var rs = (function () {
                 // fire shots
                 if (kc.keys[186]) {
 
-                    obj.shoot();
+                obj.shoot();
 
                 }
+                 */
 
                 if (kc.keys[49]) {
 
@@ -196,7 +296,6 @@ var rs = (function () {
                     this.ps.ai = false;
 
                 }
-
 
                 this.ps.update();
                 this.es.update();
