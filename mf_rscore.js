@@ -54,8 +54,8 @@ var rs = (function () {
                 // spawn an enemy
                 this.es.addShip({
 
-                    x : this.ps.units[0].x + 200,
-                    y : this.ps.units[0].y,
+                    x : obj.x + 200,
+                    y : obj.y,
                     delta : Math.floor(3.5 * d.hellPer + .5),
                     fireRate : 1000,
                     mt : 1 + 9 * d.hellPer,
@@ -84,7 +84,7 @@ var rs = (function () {
             }
 
             // death if far away
-            if (e.dtt > 500) {
+            if (e.dtt > 1250) {
 
                 e.hp = 0;
 
@@ -199,16 +199,12 @@ var rs = (function () {
                     // W
                     if (keys[0]) {
 
-                        _.l('w');
-
                         obj.delta += .1;
 
                     }
 
                     // S
                     if (keys[1]) {
-
-                        _.l('s');
 
                         obj.delta -= .1;
                     }
@@ -224,14 +220,12 @@ var rs = (function () {
                     // D
                     if (keys[3]) {
 
-                        _.l('d');
                         obj.a -= Math.PI / 20;
                     }
 
                     // ;
                     if (keys[4]) {
 
-                        _.l('L');
                         obj.shoot();
 
                     }
