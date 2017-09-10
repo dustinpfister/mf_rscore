@@ -123,21 +123,34 @@ var rs = (function () {
 
         });
 
-    },
+    };
 
+    /*
     // new player ship
     NPS = function () {
 
-        rs.ps.addShip({
+    rs.ps.addShip({
 
-            delta : 0,
-            a : Math.PI * 1.5,
+    delta : 0,
+    a : Math.PI * 1.5,
 
-        });
+    });
 
     };
+     */
 
     api = {
+
+        NPS : function () {
+
+            rs.ps.addShip({
+
+                delta : 0,
+                a : Math.PI * 1.5,
+
+            });
+
+        },
 
         d : {
 
@@ -179,7 +192,7 @@ var rs = (function () {
             // add the single player ship
             //this.ps.addShip();
 
-            NPS();
+            //this.NPS();
 
             // enemy ships collection
             this.es = new ShipCollection({
@@ -205,13 +218,14 @@ var rs = (function () {
 
             });
              */
-
+            /*
             dp.start({
 
-                key : 'pl_d',
-                unit : this.ps.units[0]
+            key : 'pl_d',
+            unit : this.ps.units[0]
 
             });
+             */
         },
 
         tick : function () {
@@ -225,7 +239,23 @@ var rs = (function () {
 
                 // add the single player ship
                 //this.ps.addShip();
-                NPS();
+                //NPS();
+
+                main.chState('p_die');
+
+                /*
+                dp.start({
+
+                key : 'pl_d',
+                unit : {
+
+                x : vp.x,
+                y : vp.y
+
+                }
+
+                });
+                 */
 
             } else {
 
@@ -304,8 +334,6 @@ var rs = (function () {
 
                 this.ps.update();
                 this.es.update();
-				
-				dp.tick();
 
             }
 
