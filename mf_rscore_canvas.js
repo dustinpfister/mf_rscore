@@ -86,6 +86,7 @@ var rscore_canvas = function () {
         ctx.textAlign = 'center';
         ctx.fillText('Hell', 320, 10);
 
+		
         var obj = rs.ps.units[0];
         if (obj === undefined) {
             obj = {}
@@ -94,10 +95,10 @@ var rscore_canvas = function () {
         ctx.textAlign = 'left';
         C.drawInfo([
 
-                'e count: ' + rs.es.units.length,
-                'min e : ' + rs.me
+                'hp: ' + obj.hp + '/' + obj.maxHP
 
-            ], 10, 100);
+            ], 10, 10,20,'20px courier','#00ff00');
+		
 
         dp.stack.forEach(function (ani) {
 
