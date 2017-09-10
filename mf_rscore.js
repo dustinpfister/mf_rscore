@@ -9,13 +9,17 @@ done:
  * one or more ai scripts that can be used with mf_swunits
  * fixed bug where a shots axis value defaults to -16 when given a value of 0.
  * size of shot taken into account when position a new shot
+ * min enemy count that goes up with hellPer
 
 todo:
 
  * tweak enemy max turn in a way that still gives the player a chance to out turn them
- * min enemy count that goes up with hellPer
+
  * special abilities
  * 'jump' event (lost mechanic)
+ * death animations
+ * better ship graphics
+ * maxDelta ship value
 
  */
 
@@ -34,11 +38,12 @@ var rs = (function () {
 
             x : Math.cos(r) * 500 + obj.x,
             y : Math.sin(r) * 500 + obj.y,
-            delta : Math.floor(3.5 * api.d.hellPer + .5),
+            //delta : Math.floor(3.5 * api.d.hellPer + .5),
             fireRate : 1000,
             mt : 1 + 9 * api.d.hellPer,
             ai_script : swai_stumpy,
-            maxHP : 1 + Math.floor(9 * api.d.hellPer)
+            maxHP : 1 + Math.floor(9 * api.d.hellPer),
+            maxD : Math.floor(3.5 * api.d.hellPer + .5)
 
         });
     },
