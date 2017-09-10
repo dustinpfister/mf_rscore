@@ -46,8 +46,8 @@ var rs = (function () {
             maxD : Math.floor(3.5 * api.d.hellPer + .5),
             onk : function () {
 
-			    _.l('killed enemy')
-			
+                _.l('killed enemy')
+
                 dp.start({
 
                     key : 'pl_d',
@@ -164,6 +164,7 @@ var rs = (function () {
 
                 delta : 0,
                 a : Math.PI * 1.5,
+                ai_script : swai_stumpy
 
             });
 
@@ -349,11 +350,12 @@ var rs = (function () {
                 // run enemy checks
                 eCheck();
 
-                this.ps.update();
-                this.es.update();
-
-				dp.tick();
 				
+                this.es.update();
+                this.ps.update();
+
+                dp.tick();
+
             }
 
         }
