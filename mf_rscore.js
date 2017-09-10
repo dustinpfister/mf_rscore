@@ -8,13 +8,14 @@ done:
  * create a new project called mf_swai (space war ai) 
  * one or more ai scripts that can be used with mf_swunits
  * fixed bug where a shots axis value defaults to -16 when given a value of 0.
+ * size of shot taken into account when position a new shot
 
 todo:
 
- * tweek enemy max turn in a way that still gives the player a chance to out turn them
- * size of shot taken into account when position a new shot
- 
-
+ * tweak enemy max turn in a way that still gives the player a chance to out turn them
+ * min enemy count that goes up with hellPer
+ * special abilities 
+ * 'jump' event (lost mechanic)
 
  */
 
