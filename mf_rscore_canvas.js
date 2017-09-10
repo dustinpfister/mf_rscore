@@ -1,4 +1,6 @@
 
+var drawANI = function () {};
+
 // draw method
 var rscore_canvas = function () {
 
@@ -48,10 +50,10 @@ var rscore_canvas = function () {
 
         });
 
-    });
+        //});
 
-    // draw shots
-    C.hiDraw(function (ctx) {
+        // draw shots
+        //C.hiDraw(function (ctx) {
 
         // player shots
         rs.ps.shots.units.forEach(function (sh) {
@@ -96,6 +98,22 @@ var rscore_canvas = function () {
                 'min e : ' + rs.me
 
             ], 10, 100);
+
+        dp.stack.forEach(function (ani) {
+
+            ani.bx.forEach(function (bx) {
+
+                var obj = _.c(bx),
+
+                pos = vp.makeVPRel(obj);
+
+                obj.x = pos.x;
+                obj.y = pos.y;
+                C.dBX(obj);
+
+            });
+
+        });
         /*
         ctx.textAlign = 'left';
         C.drawInfo([

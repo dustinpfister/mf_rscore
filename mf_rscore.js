@@ -205,6 +205,18 @@ var rs = (function () {
 
             });
              */
+
+            dp.start({
+
+                key : 'pl_d',
+                unit : {
+
+                    x : 0,
+                    y : 0
+
+                }
+
+            });
         },
 
         tick : function () {
@@ -297,6 +309,8 @@ var rs = (function () {
 
                 this.ps.update();
                 this.es.update();
+				
+				dp.tick();
 
             }
 
