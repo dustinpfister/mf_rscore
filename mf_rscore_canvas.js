@@ -92,7 +92,8 @@ var rscore_canvas = function () {
         ctx.textAlign = 'left';
         C.drawInfo([
 
-                'e count: ' + rs.es.units.length
+                'e count: ' + rs.es.units.length,
+                'min e : ' + rs.me
 
             ], 10, 100);
         /*

@@ -5,7 +5,7 @@
 done:
  * enemy's purged if to far away from the player
  * create a new project called mf_swunits (space war units)
- * create a new project called mf_swai (space war ai) 
+ * create a new project called mf_swai (space war ai)
  * one or more ai scripts that can be used with mf_swunits
  * fixed bug where a shots axis value defaults to -16 when given a value of 0.
  * size of shot taken into account when position a new shot
@@ -14,7 +14,7 @@ todo:
 
  * tweak enemy max turn in a way that still gives the player a chance to out turn them
  * min enemy count that goes up with hellPer
- * special abilities 
+ * special abilities
  * 'jump' event (lost mechanic)
 
  */
@@ -22,10 +22,27 @@ todo:
 var rs = (function () {
 
     var x = 0,
-    y = 0;
+    y = 0,
+
+    eSpawn = function (obj) {
+
+        var r = _.r(obj.a - .5, obj.a + .5);
+
+        // spawn an enemy
+        api.es.addShip({
+
+            x : Math.cos(r) * 500 + obj.x,
+            y : Math.sin(r) * 500 + obj.y,
+            delta : Math.floor(3.5 * api.d.hellPer + .5),
+            fireRate : 1000,
+            mt : 1 + 9 * api.d.hellPer,
+            ai_script : swai_stumpy
+
+        });
+    },
 
     // update all things distance.
-    var distTick = function (obj) {
+    distTick = function (obj) {
 
         var roll,
         d = this.d,
@@ -55,23 +72,12 @@ var rs = (function () {
 
             // spawn roll
             roll = _.r();
+            this.me = Math.floor(4 * d.hellPer);
 
             // if roll is less than hell percent
             if (roll < d.hellPer) {
 
-                r = _.r(obj.a - .5, obj.a + .5);
-
-                // spawn an enemy
-                this.es.addShip({
-
-                    x : Math.cos(r) * 500 + obj.x,
-                    y : Math.sin(r) * 500 + obj.y,
-                    delta : Math.floor(3.5 * d.hellPer + .5),
-                    fireRate : 1000,
-                    mt : 1 + 9 * d.hellPer,
-                    ai_script : swai_stumpy
-
-                });
+                eSpawn(obj);
 
             }
 
@@ -126,6 +132,7 @@ var rs = (function () {
             lastSpawn : new Date()
 
         }, // the current distance data
+        me : 0, // min enemy count
         ps : {},
         es : {},
         cp : {}, // current planet
