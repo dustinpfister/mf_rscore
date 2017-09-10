@@ -9,6 +9,7 @@ var files = [
     'lib/mf_swunits',
     'lib/mf_swai_smug',
     'lib/mf_swai_stumpy',
+    'lib/mf_dplayer',
     'mf_rscore',
     'mf_rscore_canvas',
     'mf_rscore_main'
@@ -23,7 +24,7 @@ var build = function () {
 
         fs.readFile('../' + files[i] + '.js', 'utf8', function (e, data) {
 
-            buildFile += jsmin(data,3);
+            buildFile += jsmin(data, 3);
 
             i += 1;
 
