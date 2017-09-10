@@ -13,6 +13,7 @@ todo:
 
  * tweek enemy max turn in a way that still gives the player a chance to out turn them
  * size of shot taken into account when position a new shot
+ 
 
 
  */
