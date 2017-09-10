@@ -37,7 +37,8 @@ var rs = (function () {
             delta : Math.floor(3.5 * api.d.hellPer + .5),
             fireRate : 1000,
             mt : 1 + 9 * api.d.hellPer,
-            ai_script : swai_stumpy
+            ai_script : swai_stumpy,
+            maxHP : 1 + Math.floor(9 * api.d.hellPer)
 
         });
     },
