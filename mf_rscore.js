@@ -24,6 +24,7 @@ var rs = (function () {
     var x = 0,
     y = 0,
 
+    // enemy spawn
     eSpawn = function (obj) {
 
         var r = _.r(obj.a - .5, obj.a + .5);
@@ -72,10 +73,18 @@ var rs = (function () {
 
             // spawn roll
             roll = _.r();
-            this.me = Math.floor(4 * d.hellPer);
+
+            // find min enemy count
+            this.me = Math.floor(5 * d.hellPer);
 
             // if roll is less than hell percent
             if (roll < d.hellPer) {
+
+                eSpawn(obj);
+
+            }
+
+            if (this.es.units.length < this.me) {
 
                 eSpawn(obj);
 
