@@ -23,7 +23,7 @@ var build = function () {
 
         fs.readFile('../' + files[i] + '.js', 'utf8', function (e, data) {
 
-            buildFile += jsmin(data);
+            buildFile += jsmin(data,3);
 
             i += 1;
 
