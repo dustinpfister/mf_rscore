@@ -43,7 +43,24 @@ var rs = (function () {
             mt : 1 + 9 * api.d.hellPer,
             ai_script : api.d.hellPer < .2 ? swai_smug : swai_stumpy,
             maxHP : 1 + Math.floor(9 * api.d.hellPer),
-            maxD : Math.floor(3.5 * api.d.hellPer + .5)
+            maxD : Math.floor(3.5 * api.d.hellPer + .5),
+            onk : function () {
+
+			    _.l('killed enemy')
+			
+                dp.start({
+
+                    key : 'pl_d',
+                    unit : {
+
+                        x : this.x,
+                        y : this.y
+
+                    }
+
+                });
+
+            }
 
         });
     },
@@ -335,6 +352,8 @@ var rs = (function () {
                 this.ps.update();
                 this.es.update();
 
+				dp.tick();
+				
             }
 
         }
