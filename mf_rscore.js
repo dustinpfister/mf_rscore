@@ -209,12 +209,7 @@ var rs = (function () {
             dp.start({
 
                 key : 'pl_d',
-                unit : {
-
-                    x : 0,
-                    y : 0
-
-                }
+                unit : this.ps.units[0]
 
             });
         },
