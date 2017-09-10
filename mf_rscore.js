@@ -2,13 +2,16 @@
  *
  *   red space core game logic
 
+done:
+ * enemy's purged if to far away from the player
+ * create a new project called mf_swunits (space war units)
+ * create a new project called mf_swai (space war ai) 
+ * one or more ai scripts that can be used with mf_swunits
+
 todo:
 
  * tweek enemy max turn in a way that still gives the player a chance to out turn them
- * enemy's purged if to far away from the player
- * create a new project called mf_swunits (space war units)
- * create a new project called mf_swai (space war ai)
- * one or more ai scripts that can be used with mf_swunits
+
 
 
  */
@@ -104,9 +107,13 @@ var rs = (function () {
         rs.ps.addShip({
 
             delta : 0,
-            a : Math.PI * 1.5
+            a : Math.PI * 1.5,
+			x : -16,
+			y : -16
 
         });
+		
+		_.l(rs.ps)
     };
 
     api = {
