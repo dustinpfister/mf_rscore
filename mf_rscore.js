@@ -32,7 +32,7 @@ var rs = (function () {
     var pl,
 
     // enemy spawn
-    eSpawn = function (obj) {
+    eSpawn = function () {
 
         var r = _.r(pl.a - .5, pl.a + .5);
 
@@ -60,6 +60,8 @@ var rs = (function () {
                     }
 
                 });
+
+                rs.sp += 1;
 
             }
 
@@ -167,6 +169,7 @@ var rs = (function () {
 
         }, // the current distance data
         me : 0, // min enemy count
+        sp : 0, // skill points
         ps : {},
         es : {},
         cp : {}, // current planet
