@@ -240,6 +240,8 @@ var rs = (function () {
 
                 }
 
+                this.fr(); // find options
+
             },
 
             // options
