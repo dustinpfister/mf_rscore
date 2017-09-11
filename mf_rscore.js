@@ -177,13 +177,24 @@ var rs = (function () {
             sp : 0, // skill points
             msp : 100, // max skill points
 
+            norm : function () {
+
+                if (this.sp > this.msp) {
+
+                    this.sp = this.msp;
+
+                }
+
+            },
+
             // player killed the given enemy
             kill : function (e) {
 
                 _.l('player kill: ');
                 _.l(e);
-				
-				this.sp += 1;
+
+                this.sp += e.maxHP;
+                this.norm();
 
             }
         },
