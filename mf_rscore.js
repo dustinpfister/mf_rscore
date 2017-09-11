@@ -61,7 +61,7 @@ var rs = (function () {
 
                 });
 
-                rs.sp += 1;
+                rs.a.kill(this);
 
             }
 
@@ -148,6 +148,7 @@ var rs = (function () {
     // public api
     api = {
 
+        // new player ship
         NPS : function () {
 
             rs.ps.addShip({
@@ -160,6 +161,7 @@ var rs = (function () {
 
         },
 
+        // distance object
         d : {
 
             safeDist : 1000, // safe distance
@@ -167,13 +169,33 @@ var rs = (function () {
             spawnRate : 10000, // how often an enemy spawn might happen
             lastSpawn : new Date()
 
-        }, // the current distance data
-        me : 0, // min enemy count
-        sp : 0, // skill points
-        ps : {},
-        es : {},
-        cp : {}, // current planet
+        },
 
+        // abilities object
+        a : {
+
+            sp : 0, // skill points
+            msp : 100, // max skill points
+
+            // player killed the given enemy
+            kill : function (e) {
+
+                _.l('player kill: ');
+                _.l(e);
+				
+				this.sp += 1;
+
+            }
+        },
+
+        me : 0, // min enemy count
+        //sp : 0, // skill points
+        ps : {}, // player ship collection
+        es : {}, // enemy ship collection
+
+        //        cp : {}, // current planet
+
+        // set things up
         init : function () {
 
             // view port

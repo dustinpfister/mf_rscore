@@ -95,7 +95,7 @@ var rscore_canvas = function () {
         C.drawInfo([
 
                 'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead'),
-                'skill points: ' + rs.sp
+                'skill points: ' + rs.a.sp
 
             ], 10, 10, 20, '20px courier', '#00ff00');
 
