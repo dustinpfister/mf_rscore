@@ -61,7 +61,14 @@ var rs = (function () {
 
                 });
 
-                rs.a.kill(this);
+                if (this.killedBy) {
+
+                    _.l('killed by');
+                    _.l(this.killedBy)
+
+                    rs.a.kill(this);
+
+                }
 
             }
 
@@ -246,7 +253,7 @@ var rs = (function () {
                     onuse : function () {
 
                         _.l('boost!');
-						pl.boost += 20;
+                        pl.boost += 20;
 
                     }
 
