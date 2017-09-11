@@ -10,6 +10,8 @@ done:
  * fixed bug where a shots axis value defaults to -16 when given a value of 0.
  * size of shot taken into account when position a new shot
  * min enemy count that goes up with hellPer
+ * death animations
+ * maxDelta ship value
 
 todo:
 
@@ -17,10 +19,9 @@ todo:
 
  * special abilities
  * 'jump' event (lost mechanic)
- * death animations
- * better ship graphics
- * maxDelta ship value
 
+ * better ship graphics
+ 
  */
 
 var rs = (function () {
@@ -45,8 +46,6 @@ var rs = (function () {
             maxHP : 1 + Math.floor(9 * api.d.hellPer),
             maxD : Math.floor(3.5 * api.d.hellPer + .5),
             onk : function () {
-
-                _.l('killed enemy')
 
                 dp.start({
 
@@ -142,20 +141,7 @@ var rs = (function () {
 
     };
 
-    /*
-    // new player ship
-    NPS = function () {
-
-    rs.ps.addShip({
-
-    delta : 0,
-    a : Math.PI * 1.5,
-
-    });
-
-    };
-     */
-
+    // public api
     api = {
 
         NPS : function () {
@@ -185,8 +171,6 @@ var rs = (function () {
 
         init : function () {
 
-            _.l('rw-core: init...');
-
             // view port
             vp.w = 640;
             vp.h = 480;
@@ -196,8 +180,7 @@ var rs = (function () {
             C.canvas.height = 480;
             C.cls();
 
-            // set hell dist based on sections
-
+            // set hell dist
             this.d.hellDist = 10000;
 
             // the New Player Ship Collection that will replace playerObj, and pShots
@@ -206,11 +189,6 @@ var rs = (function () {
                     //ai : true,
                     max : 1
                 });
-
-            // add the single player ship
-            //this.ps.addShip();
-
-            //this.NPS();
 
             // enemy ships collection
             this.es = new ShipCollection({
@@ -222,28 +200,7 @@ var rs = (function () {
             // set enemy collections for each collection
             this.ps.enemys = this.es;
             this.es.enemys = this.ps;
-            /*
-            // spawn an enemy
-            this.es.addShip({
 
-            x : this.ps.units[0].x + 200,
-            y : this.ps.units[0].y,
-            a : Math.PI * .5,
-            delta : 0,
-            fireRate : 1000,
-            mt : 2,
-            ai_script : swai_smug
-
-            });
-             */
-            /*
-            dp.start({
-
-            key : 'pl_d',
-            unit : this.ps.units[0]
-
-            });
-             */
         },
 
         tick : function () {
@@ -253,27 +210,8 @@ var rs = (function () {
 
             if (obj === undefined) {
 
-                _.l('player dead');
-
-                // add the single player ship
-                //this.ps.addShip();
-                //NPS();
-
+                // player dead
                 main.chState('p_die');
-
-                /*
-                dp.start({
-
-                key : 'pl_d',
-                unit : {
-
-                x : vp.x,
-                y : vp.y
-
-                }
-
-                });
-                 */
 
             } else {
 
@@ -301,7 +239,6 @@ var rs = (function () {
                     // A
                     if (keys[2]) {
 
-                        _.l(obj.maxTurn);
                         obj.a += Math.PI / 20;
 
                     }
@@ -350,7 +287,6 @@ var rs = (function () {
                 // run enemy checks
                 eCheck();
 
-				
                 this.es.update();
                 this.ps.update();
 
