@@ -181,9 +181,9 @@ var rs = (function () {
         // abilities object
         a : {
 
-            sp : 0, // skill points
+            sp : 50, // skill points
             msp : 100, // max skill points
-            cd : 1000, // cool down in ms
+            cd : 500, // cool down in ms
             lt : new Date(),
             ready : [], // list of ready options
 
@@ -237,7 +237,7 @@ var rs = (function () {
 
                 if (now - this.lt >= this.cd) {
 
-                    if (this.sp >= p.c) {
+                    if (this.sp >= p.c && p.con()) {
 
                         this.sp -= p.c;
                         p.onuse();
@@ -259,6 +259,9 @@ var rs = (function () {
 
                     c : 1,
                     disp : 'boost',
+                    con : function () {
+                        return true;
+                    },
                     onuse : function () {
 
                         _.l('boost!');
@@ -272,9 +275,22 @@ var rs = (function () {
 
                     c : 5,
                     disp : 'heal',
+                    con : function () {
+
+                        if (pl.hp < pl.maxHP) {
+
+                            return true;
+
+                        }
+
+                        return false;
+
+                    },
                     onuse : function () {
 
                         _.l('heal!');
+
+                        pl.hp += 1;
 
                     }
 
