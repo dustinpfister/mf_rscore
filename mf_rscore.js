@@ -246,6 +246,7 @@ var rs = (function () {
                     onuse : function () {
 
                         _.l('boost!');
+						pl.boost += 20;
 
                     }
 
