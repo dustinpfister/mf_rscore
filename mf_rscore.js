@@ -177,6 +177,9 @@ var rs = (function () {
             sp : 0, // skill points
             msp : 100, // max skill points
 
+            ready : [], // list of ready options
+
+            // normalize skill points
             norm : function () {
 
                 if (this.sp > this.msp) {
@@ -195,8 +198,59 @@ var rs = (function () {
 
                 this.sp += e.maxHP;
                 this.norm();
+                this.fr(); // find options
+
+            },
+
+            // find ready options
+            fr : function () {
+
+                this.ready = [];
+
+                for (var prop in this.opt) {
+
+                    if (this.sp >= this.opt[prop].c) {
+
+                        this.ready.push(this.opt[prop].c + ' : ' + this.opt[prop].disp);
+
+                    }
+
+                }
+
+                _.l(this.ready);
+
+            },
+
+            // options
+            opt : {
+
+                // speed up
+                b : {
+
+                    c : 1,
+                    disp : 'boost',
+                    onuse : function () {
+
+                        _.l('boost!');
+
+                    }
+
+                },
+
+                h : {
+
+                    c : 5,
+                    disp : 'heal',
+                    onuse : function () {
+
+                        _.l('heal!');
+
+                    }
+
+                }
 
             }
+
         },
 
         me : 0, // min enemy count
