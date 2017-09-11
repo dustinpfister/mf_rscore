@@ -221,6 +221,20 @@ var rs = (function () {
 
             },
 
+            // buy a power up with the given key
+            buy : function (key) {
+
+                var p = this.opt[key];
+
+                if (this.sp >= p.c) {
+
+                    this.sp -= p.c;
+                    p.onuse();
+
+                }
+
+            },
+
             // options
             opt : {
 
@@ -316,7 +330,7 @@ var rs = (function () {
                 vp.x = pl.x - vp.w / 2;
                 vp.y = pl.y - vp.h / 2;
 
-                kc.s(['W', 'S', 'A', 'D', 'L'], function (keys) {
+                kc.s(['W', 'S', 'A', 'D', 'L', '1', '2'], function (keys) {
 
                     // W
                     if (keys[0]) {
@@ -344,10 +358,24 @@ var rs = (function () {
                         pl.a -= Math.PI / 20;
                     }
 
-                    // ;
+                    // L
                     if (keys[4]) {
 
                         pl.shoot();
+
+                    }
+
+                    // 1
+                    if (keys[5]) {
+
+                        rs.a.buy('b');
+
+                    }
+
+                    // 2
+                    if (keys[6]) {
+
+                        rs.a.buy('h');
 
                     }
 
@@ -366,19 +394,19 @@ var rs = (function () {
                 });
 
                 pl.step();
-
+                /*
                 if (kc.keys[49]) {
 
-                    this.ps.ai = true;
+                this.ps.ai = true;
 
                 }
 
                 if (kc.keys[50]) {
 
-                    this.ps.ai = false;
+                this.ps.ai = false;
 
                 }
-
+                 */
                 // run enemy checks
                 eCheck();
 
