@@ -183,7 +183,8 @@ var rs = (function () {
 
             sp : 0, // skill points
             msp : 100, // max skill points
-
+            cd : 1000, // cool down in ms
+            lt : new Date(),
             ready : [], // list of ready options
 
             // normalize skill points
@@ -231,16 +232,22 @@ var rs = (function () {
             // buy a power up with the given key
             buy : function (key) {
 
-                var p = this.opt[key];
+                var p = this.opt[key],
+                now = new Date();
 
-                if (this.sp >= p.c) {
+                if (now - this.lt >= this.cd) {
 
-                    this.sp -= p.c;
-                    p.onuse();
+                    if (this.sp >= p.c) {
+
+                        this.sp -= p.c;
+                        p.onuse();
+
+                    }
+
+                    this.lt = now;
+                    this.fr(); // find options
 
                 }
-
-                this.fr(); // find options
 
             },
 
