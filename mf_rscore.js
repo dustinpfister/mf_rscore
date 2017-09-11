@@ -21,24 +21,26 @@ todo:
  * 'jump' event (lost mechanic)
 
  * better ship graphics
- 
+
  */
 
 var rs = (function () {
 
-    var x = 0,
-    y = 0,
+    //var x = 0,
+    //y = 0,
+
+    var pl,
 
     // enemy spawn
     eSpawn = function (obj) {
 
-        var r = _.r(obj.a - .5, obj.a + .5);
+        var r = _.r(pl.a - .5, pl.a + .5);
 
         // spawn an enemy
         api.es.addShip({
 
-            x : Math.cos(r) * 500 + obj.x,
-            y : Math.sin(r) * 500 + obj.y,
+            x : Math.cos(r) * 500 + pl.x,
+            y : Math.sin(r) * 500 + pl.y,
             //delta : Math.floor(3.5 * api.d.hellPer + .5),
             fireRate : 1000,
             mt : 1 + 9 * api.d.hellPer,
@@ -73,7 +75,7 @@ var rs = (function () {
         per;
 
         // update distance
-        d.d = _.d(0, 0, obj.x + obj.w / 2, obj.y + obj.w / 2);
+        d.d = _.d(0, 0, pl.x + pl.w / 2, pl.y + pl.w / 2);
 
         // find hell percent
         d.hellPer = (d.d - d.safeDist) / d.hellDist;
@@ -102,13 +104,13 @@ var rs = (function () {
             // if roll is less than hell percent
             if (roll < d.hellPer) {
 
-                eSpawn(obj);
+                eSpawn(pl);
 
             }
 
             if (this.es.units.length < this.me) {
 
-                eSpawn(obj);
+                eSpawn(pl);
 
             }
 
@@ -206,71 +208,74 @@ var rs = (function () {
         tick : function () {
 
             // player object
-            var obj = this.ps.units[0];
+            //var obj = this.ps.units[0];
 
-            if (obj === undefined) {
+
+            pl = rs.ps.units[0];
+
+            if (pl === undefined) {
 
                 // player dead
                 main.chState('p_die');
 
             } else {
 
-                distTick.call(this, obj);
+                distTick.call(this, pl);
 
                 // center viewport over player object
-                vp.x = obj.x - vp.w / 2;
-                vp.y = obj.y - vp.h / 2;
+                vp.x = pl.x - vp.w / 2;
+                vp.y = pl.y - vp.h / 2;
 
                 kc.s(['W', 'S', 'A', 'D', 'L'], function (keys) {
 
                     // W
                     if (keys[0]) {
 
-                        obj.delta += .1;
+                        pl.delta += .1;
 
                     }
 
                     // S
                     if (keys[1]) {
 
-                        obj.delta -= .1;
+                        pl.delta -= .1;
                     }
 
                     // A
                     if (keys[2]) {
 
-                        obj.a += Math.PI / 20;
+                        pl.a += Math.PI / 20;
 
                     }
 
                     // D
                     if (keys[3]) {
 
-                        obj.a -= Math.PI / 20;
+                        pl.a -= Math.PI / 20;
                     }
 
                     // ;
                     if (keys[4]) {
 
-                        obj.shoot();
+                        pl.shoot();
 
                     }
 
-                    if (obj.delta > 3) {
+                    if (pl.delta > 3) {
 
-                        obj.delta = 3;
+                        pl.delta = 3;
 
                     }
 
-                    if (obj.delta < 0) {
+                    if (pl.delta < 0) {
 
-                        obj.delta = 0;
+                        pl.delta = 0;
 
                     }
 
                 });
 
-                obj.step();
+                pl.step();
 
                 if (kc.keys[49]) {
 
