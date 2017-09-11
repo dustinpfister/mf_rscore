@@ -95,7 +95,7 @@ var rscore_canvas = function () {
         ctx.textAlign = 'left';
         C.drawInfo([
 
-                'hp: ' + obj.hp + '/' + obj.maxHP
+                'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP: 'dead')
 
             ], 10, 10,20,'20px courier','#00ff00');
 		
