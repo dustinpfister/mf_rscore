@@ -160,15 +160,14 @@ var rs = (function () {
         NPS : function () {
 
             rs.ps.addShip({
-
+                //yaw : -1
                 delta : 0,
                 a : Math.PI * 1.5,
-                ai_script : swai_side,
-                yaw : -1
+                ai_script : swai_side
 
             });
 
-            _.l(rs.ps.units)
+            //_.l(rs.ps.units)
 
         },
 
@@ -354,13 +353,8 @@ var rs = (function () {
 
             } else {
 
-                distTick.call(this, pl);
-
-                // center viewport over player object
-                vp.x = pl.x - vp.w / 2;
-                vp.y = pl.y - vp.h / 2;
-
-                kc.s(['W', 'S', 'A', 'D', 'L', '1', '2'], function (keys) {
+                //pl.yaw = 0;
+                kc.s(['W', 'S', 'A', 'D', 'J', 'K', 'L', '1', '2'], function (keys) {
 
                     // W
                     if (keys[0]) {
@@ -388,22 +382,37 @@ var rs = (function () {
                         pl.a -= Math.PI / 20;
                     }
 
-                    // L
+                    //J
                     if (keys[4]) {
+
+                        //pl.shoot();
+                        pl.yaw += .5;
+                    }
+
+                    // K
+                    if (keys[5]) {
 
                         pl.shoot();
 
                     }
 
+                    // L
+                    if (keys[6]) {
+
+                        //pl.shoot();
+                        pl.yaw -= .5;
+
+                    }
+
                     // 1
-                    if (keys[5]) {
+                    if (keys[7]) {
 
                         rs.a.buy('b');
 
                     }
 
                     // 2
-                    if (keys[6]) {
+                    if (keys[8]) {
 
                         rs.a.buy('h');
 
@@ -423,7 +432,35 @@ var rs = (function () {
 
                 });
 
+                distTick.call(this, pl);
+
+                // center viewport over player object
+                vp.x = pl.x - vp.w / 2;
+                vp.y = pl.y - vp.h / 2;
+
+                if (pl.yaw > 3) {
+                    pl.yaw = 3;
+
+                }
+                if (pl.yaw < -3) {
+                    pl.yaw = -3;
+
+                }
+
                 pl.step();
+
+                if (pl.yaw > 0) {
+
+                    pl.yaw -= .05;
+
+                }
+
+                if (pl.yaw < 0) {
+
+                    pl.yaw += .05;
+
+                }
+
                 /*
                 if (kc.keys[49]) {
 
