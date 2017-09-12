@@ -92,11 +92,6 @@ var rscore_canvas = function () {
 
         });
 
-        //});
-
-        // draw shots
-        //C.hiDraw(function (ctx) {
-
         // player shots
         rs.ps.shots.units.forEach(function (sh) {
 
@@ -136,7 +131,8 @@ var rscore_canvas = function () {
         ctx.textAlign = 'left';
         C.drawInfo([
 
-                'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead')
+                'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead'),
+				'fire Rate: ' + Math.floor(obj.fr)
 
             ], 10, 10, 20, '20px courier', '#00ff00');
 
@@ -162,20 +158,6 @@ var rscore_canvas = function () {
             });
 
         });
-        /*
-        ctx.textAlign = 'left';
-        C.drawInfo([
-
-        'D : ' + rs.d.d.toFixed(2),
-        'map pos: ' + vp.x + ',' + vp.y,
-        'player hp: ' + obj.hp + '/' + obj.maxHP,
-        'hd: ' + rs.d.hd,
-        'p: ' + rs.d.p,
-        'nextSpawn: ' + (rs.d.spawnRate - (new Date() - rs.d.lastSpawn)),
-        'spawnRate: ' + rs.d.spawnRate
-
-        ], 10, 100);
-         */
 
     });
 

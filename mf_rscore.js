@@ -186,8 +186,8 @@ var rs = (function () {
         // abilities object
         a : {
 
-            sp : 50, // skill points
-            msp : 100, // max skill points
+            sp : 200, // skill points
+            msp : 200, // max skill points
             cd : 100, // cool down in ms
             lt : new Date(),
             ready : [], // list of ready options
@@ -318,7 +318,7 @@ var rs = (function () {
                     onuse : function () {
 
                         // fire rate reduced
-                        pl.fr /= 2;
+                        pl.fr /= 1.5;
 
                     }
 
