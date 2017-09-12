@@ -37,7 +37,7 @@ drawHome = function (ctx) {
 
     }
 
-}
+};
 
 // draw method
 var rscore_canvas = function () {
