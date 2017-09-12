@@ -45,7 +45,7 @@ var rs = (function () {
             x : Math.cos(r) * 500 + pl.x,
             y : Math.sin(r) * 500 + pl.y,
             //delta : Math.floor(3.5 * api.d.p + .5),
-            fireRate : 1000,
+            fr : 1000,
             mt : 1 + 9 * api.d.p,
             ai_script : swai_side, //swai_stumpy, //api.d.p < .2 ? swai_smug : swai_stumpy,
             maxHP : 1 + Math.floor(9 * api.d.p),
@@ -164,6 +164,7 @@ var rs = (function () {
                 //yaw : -1
                 delta : 0,
                 mt : 10,
+				fr : 1000,
                 a : _.pi * 1.5,
                 ai_script : swai_side
 
