@@ -135,6 +135,7 @@ var rscore_canvas = function () {
         ctx.textAlign = 'left';
         C.drawInfo([
 
+                'score: ' + rs.score,
                 'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead'),
                 'fire Rate: ' + (Math.floor(obj.fr) || '')
 

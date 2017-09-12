@@ -32,7 +32,6 @@ var rs = (function () {
     //y = 0,
 
     var pl,
-    score = 0,
 
     // enemy spawn
     eSpawn = function () {
@@ -69,6 +68,7 @@ var rs = (function () {
                 if (this.killedBy) {
 
                     rs.a.kill(this);
+                    rs.score += this.maxHP * 100;
 
                 }
 
@@ -163,6 +163,8 @@ var rs = (function () {
 
     // public api
     api = {
+
+        score : 0,
 
         // new player ship
         NPS : function () {
