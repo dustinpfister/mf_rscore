@@ -29,7 +29,7 @@ drawHome = function (ctx) {
                 y : 0
             });
 
-        ctx.fillStyle = 'rgba(0,0,255,' + (1 - (rs.d.d / rs.d.safeDist)).toFixed(2) + ')';
+        ctx.fillStyle = 'rgba(0,64,128,' + (1 - (rs.d.d / rs.d.safeDist)).toFixed(2) + ')';
         ctx.beginPath();
 
         ctx.arc(pos.x, pos.y, rs.d.safeDist, 0, _.tau);
@@ -139,13 +139,14 @@ var rscore_canvas = function () {
                 'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead')
                 //'skill points: ' + rs.a.sp
 
-            ].concat(rs.a.ready), 10, 10, 20, '20px courier', '#00ff00');
+            ], 10, 10, 20, '20px courier', '#00ff00');
 
+		// draw info
         C.drawInfo([
 
                 'skill points: ' + rs.a.sp
 
-            ], 450, 20, 15, '15px courier', '#00ff00');
+            ].concat(rs.a.ready), 450, 20, 15, '15px courier', '#00ff00');
 
         dp.stack.forEach(function (ani) {
 

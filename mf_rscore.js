@@ -203,9 +203,6 @@ var rs = (function () {
             // player killed the given enemy
             kill : function (e) {
 
-                _.l('player kill: ');
-                _.l(e);
-
                 this.sp += e.maxHP;
                 this.norm();
                 this.fr(); // find options
@@ -226,8 +223,6 @@ var rs = (function () {
                     }
 
                 }
-
-                _.l(this.ready);
 
             },
 
@@ -266,8 +261,7 @@ var rs = (function () {
                     },
                     onuse : function () {
 
-                        _.l('boost!');
-                        pl.boost += 20;
+                        pl.boost += 30;
 
                     }
 
@@ -289,8 +283,6 @@ var rs = (function () {
 
                     },
                     onuse : function () {
-
-                        _.l('heal!');
 
                         pl.hp += 1;
 
