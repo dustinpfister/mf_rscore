@@ -14,11 +14,16 @@ done:
  * maxDelta ship value
  * special abilities
 
+  * better ship graphics
+ 
 todo:
 
  * tweak enemy max turn in a way that still gives the player a chance to out turn them
  * 'jump' event (lost mechanic)
- * better ship graphics
+ * tweak ai so that the ships do not bunch together
+ * add yaw movement for player ship
+ * add weapon up ability
+ * draw location of safe zone 
 
  */
 

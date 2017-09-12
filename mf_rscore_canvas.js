@@ -16,7 +16,7 @@ var rscore_canvas = function () {
         ctx.rotate(obj.a);
 
         ctx.beginPath();
-		ctx.moveTo(-10,0);
+        ctx.moveTo(-10, 0);
         ctx.lineTo(-25, -18);
         ctx.lineTo(20, 0);
         ctx.lineTo(-25, 18);
@@ -99,7 +99,7 @@ var rscore_canvas = function () {
 
         });
 
-        // hell bar
+        // RED bar
         ctx.fillStyle = '#afafaf';
         ctx.fillRect(220, 10, 200, 20);
         ctx.fillStyle = '#ff0000';
@@ -108,7 +108,7 @@ var rscore_canvas = function () {
         ctx.fillStyle = '#ffffff';
         ctx.textBaseline = 'top';
         ctx.textAlign = 'center';
-        ctx.fillText('Hell', 320, 10);
+        ctx.fillText('RED', 320, 10);
 
         var obj = rs.ps.units[0];
         if (obj === undefined) {
@@ -118,10 +118,16 @@ var rscore_canvas = function () {
         ctx.textAlign = 'left';
         C.drawInfo([
 
-                'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead'),
-                'skill points: ' + rs.a.sp
+                'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead')
+                //'skill points: ' + rs.a.sp
 
             ].concat(rs.a.ready), 10, 10, 20, '20px courier', '#00ff00');
+
+        C.drawInfo([
+
+                'skill points: ' + rs.a.sp
+
+            ], 450, 20, 15, '15px courier', '#00ff00');
 
         dp.stack.forEach(function (ani) {
 
