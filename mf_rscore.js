@@ -32,6 +32,7 @@ var rs = (function () {
     //y = 0,
 
     var pl,
+	score = 0,
 
     // enemy spawn
     eSpawn = function () {
@@ -68,6 +69,8 @@ var rs = (function () {
                 if (this.killedBy) {
 
                     rs.a.kill(this);
+					
+					
 
                 }
 
@@ -162,7 +165,7 @@ var rs = (function () {
             rs.ps.addShip({
                 //yaw : -1
                 delta : 0,
-                a : Math.PI * 1.5,
+                a : _.pi * 1.5,
                 ai_script : swai_side
 
             });
@@ -378,14 +381,14 @@ var rs = (function () {
                     // A
                     if (keys[2]) {
 
-                        pl.a += Math.PI / 20;
+                        pl.a += pl.mt;//_.pi / 180 * 10;
 
                     }
 
                     // D
                     if (keys[3]) {
 
-                        pl.a -= Math.PI / 20;
+                        pl.a -= pl.mt;//_.pi / 180 * 10;
                     }
 
                     //J
