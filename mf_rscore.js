@@ -164,7 +164,7 @@ var rs = (function () {
                 //yaw : -1
                 delta : 0,
                 mt : 10,
-				fr : 1000,
+                fr : 1000,
                 a : _.pi * 1.5,
                 ai_script : swai_side
 
@@ -298,6 +298,30 @@ var rs = (function () {
 
                     }
 
+                },
+
+                w : {
+
+                    c : 25,
+                    disp : 'weapon',
+                    con : function () {
+
+                        if (pl.fr > 100) {
+
+                            return true;
+
+                        }
+
+                        return false;
+
+                    },
+                    onuse : function () {
+
+                        // fire rate reduced
+                        pl.fr /= 2;
+
+                    }
+
                 }
 
             }
@@ -362,7 +386,7 @@ var rs = (function () {
             } else {
 
                 //pl.yaw = 0;
-                kc.s(['W', 'S', 'A', 'D', 'J', 'K', 'L', '1', '2'], function (keys) {
+                kc.s(['W', 'S', 'A', 'D', 'J', 'K', 'L', '1', '2','3'], function (keys) {
 
                     // W
                     if (keys[0]) {
@@ -423,6 +447,13 @@ var rs = (function () {
                     if (keys[8]) {
 
                         rs.a.buy('h');
+
+                    }
+
+                    // 3
+                    if (keys[9]) {
+
+                        rs.a.buy('w');
 
                     }
 
