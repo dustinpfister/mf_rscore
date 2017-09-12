@@ -129,6 +129,13 @@ var rs = (function () {
 
         }
 
+        // restore to half health restored if in safe zone
+        if (this.d.d < this.d.sd && pl.hp < pl.maxHP / 2) {
+
+            pl.hp = pl.maxHP / 2;
+
+        }
+
     },
 
     // check all enemy units
@@ -164,7 +171,7 @@ var rs = (function () {
                 //yaw : -1
                 delta : 0,
                 mt : 10,
-                fr : 1000,
+                fr : 800,
                 a : _.pi * 1.5,
                 ai_script : swai_side
 
@@ -386,7 +393,7 @@ var rs = (function () {
             } else {
 
                 //pl.yaw = 0;
-                kc.s(['W', 'S', 'A', 'D', 'J', 'K', 'L', '1', '2','3'], function (keys) {
+                kc.s(['W', 'S', 'A', 'D', 'J', 'K', 'L', '1', '2', '3'], function (keys) {
 
                     // W
                     if (keys[0]) {
