@@ -1,5 +1,22 @@
 
-var drawANI = function () {};
+var basicShip = function (obj, ctx) {
+
+    ctx.save();
+    ctx.translate(obj.x + obj.hw, obj.y + obj.hh);
+    ctx.rotate(obj.a);
+
+    ctx.beginPath();
+    ctx.moveTo(-10, 0);
+    ctx.lineTo(-25, -18);
+    ctx.lineTo(20, 0);
+    ctx.lineTo(-25, 18);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.restore();
+
+};
 
 // draw method
 var rscore_canvas = function () {
@@ -8,25 +25,7 @@ var rscore_canvas = function () {
     obj,
     y,
     w,
-    h,
-    basicShip = function (obj, ctx) {
-
-        ctx.save();
-        ctx.translate(obj.x + obj.hw, obj.y + obj.hh);
-        ctx.rotate(obj.a);
-
-        ctx.beginPath();
-        ctx.moveTo(-10, 0);
-        ctx.lineTo(-25, -18);
-        ctx.lineTo(20, 0);
-        ctx.lineTo(-25, 18);
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.restore();
-
-    };
+    h;
 
     C.cls('rgba(' + Math.floor(255 * rs.d.hellPer) + ',0,0,1)');
 
@@ -47,8 +46,6 @@ var rscore_canvas = function () {
 
             obj.x = pos.x;
             obj.y = pos.y;
-            obj.f = '#00af88';
-            //C.drawInfo([obj.a], 50, 20);
             //C.dBX(obj);
 
             ctx.strokeStyle = '#00ffff';
@@ -65,8 +62,7 @@ var rscore_canvas = function () {
 
             obj.x = pos.x;
             obj.y = pos.y;
-            obj.s = '#000000';
-            obj.f = '#af0000';
+
             //C.dBX(obj);
             ctx.strokeStyle = '#ff0000';
             ctx.fillStyle = '#000000';
