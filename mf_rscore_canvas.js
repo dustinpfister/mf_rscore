@@ -20,16 +20,22 @@ var basicShip = function (obj, ctx) {
 
 drawHome = function (ctx) {
 
-    var pos = vp.makeVPRel({
-            x : 0,
-            y : 0
-        });
+    var pos;
 
-    ctx.fillStyle = 'rgba(0,0,255,'+(1-(rs.d.d / rs.d.safeDist)).toFixed(2)+')';
-    ctx.beginPath();
+    if (rs.d.d < rs.d.safeDist) {
 
-    ctx.arc(pos.x, pos.y, rs.d.safeDist, 0, _.tau);
-    ctx.fill();
+        pos = vp.makeVPRel({
+                x : 0,
+                y : 0
+            });
+
+        ctx.fillStyle = 'rgba(0,0,255,' + (1 - (rs.d.d / rs.d.safeDist)).toFixed(2) + ')';
+        ctx.beginPath();
+
+        ctx.arc(pos.x, pos.y, rs.d.safeDist, 0, _.tau);
+        ctx.fill();
+
+    }
 
 }
 
