@@ -132,7 +132,7 @@ var rscore_canvas = function () {
         C.drawInfo([
 
                 'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead'),
-				'fire Rate: ' + Math.floor(obj.fr)
+                'fire Rate: ' + Math.floor(obj.fr)
 
             ], 10, 10, 20, '20px courier', '#00ff00');
 

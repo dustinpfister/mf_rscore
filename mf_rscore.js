@@ -186,9 +186,9 @@ var rs = (function () {
         // abilities object
         a : {
 
-            sp : 200, // skill points
-            msp : 200, // max skill points
-            cd : 100, // cool down in ms
+            sp : 5, // skill points
+            msp : 100, // max skill points
+            cd : 400, // cool down in ms
             lt : new Date(),
             ready : [], // list of ready options
 
