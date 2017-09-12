@@ -336,46 +336,6 @@ var rs = (function () {
             this.ps.enemys = this.es;
             this.es.enemys = this.ps;
 
-			//this.tick();
-			
-			//eSpawn();
-			
-			api.es.addShip({
-
-            x : Math.cos(_.pi) * 200,
-            y : Math.sin(_.pi) * 200,
-            //delta : Math.floor(3.5 * api.d.p + .5),
-            fireRate : 1000,
-            mt : 3,
-            ai_script : swai_side, //swai_stumpy, //api.d.p < .2 ? swai_smug : swai_stumpy,
-            maxHP : 1 ,
-            maxD : 1,
-            onk : function () {
-
-                // start death animation
-                dp.start({
-
-                    key : 'pl_d',
-                    unit : {
-
-                        x : this.x,
-                        y : this.y
-
-                    }
-
-                });
-
-                // if killed by the player
-                if (this.killedBy) {
-
-                    rs.a.kill(this);
-
-                }
-
-            }
-
-        });
-			
         },
 
         tick : function () {
@@ -477,45 +437,11 @@ var rs = (function () {
                 // center viewport over player object
                 vp.x = pl.x - vp.w / 2;
                 vp.y = pl.y - vp.h / 2;
-/*
-                if (pl.yaw > 3) {
-                    pl.yaw = 3;
 
-                }
-                if (pl.yaw < -3) {
-                    pl.yaw = -3;
-
-                }
-*/
                 pl.step();
-/*
-                if (pl.yaw > 0) {
 
-                    pl.yaw -= .05;
-
-                }
-
-                if (pl.yaw < 0) {
-
-                    pl.yaw += .05;
-
-                }
-*/
-                /*
-                if (kc.keys[49]) {
-
-                this.ps.ai = true;
-
-                }
-
-                if (kc.keys[50]) {
-
-                this.ps.ai = false;
-
-                }
-                 */
                 // run enemy checks
-                //eCheck();
+                eCheck();
 
                 this.es.update();
                 this.ps.update();
