@@ -12,14 +12,12 @@ done:
  * min enemy count that goes up with hellPer
  * death animations
  * maxDelta ship value
+ * special abilities
 
 todo:
 
  * tweak enemy max turn in a way that still gives the player a chance to out turn them
-
- * special abilities
  * 'jump' event (lost mechanic)
-
  * better ship graphics
 
  */
@@ -49,6 +47,7 @@ var rs = (function () {
             maxD : Math.floor(3.5 * api.d.hellPer + .5),
             onk : function () {
 
+                // start death animation
                 dp.start({
 
                     key : 'pl_d',
@@ -61,10 +60,8 @@ var rs = (function () {
 
                 });
 
+                // if killed by the player
                 if (this.killedBy) {
-
-                    _.l('killed by');
-                    _.l(this.killedBy)
 
                     rs.a.kill(this);
 
