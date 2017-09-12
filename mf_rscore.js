@@ -177,6 +177,10 @@ var rs = (function () {
 
             });
 
+            // start off with 50
+            api.a.sp = 50;
+            api.a.fr();
+
         },
 
         // distance object
@@ -338,8 +342,6 @@ var rs = (function () {
         me : 0, // min enemy count
         ps : {}, // player ship collection
         es : {}, // enemy ship collection
-
-        //        cp : {}, // current planet
 
         // set things up
         init : function () {
