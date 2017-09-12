@@ -89,7 +89,7 @@ var rs = (function () {
         d.d = _.d(0, 0, pl.x + pl.w / 2, pl.y + pl.w / 2);
 
         // find hell percent
-        d.hellPer = (d.d - d.safeDist) / d.hellDist;
+        d.hellPer = (d.d - d.sd) / d.hellDist;
         //d.hellPer = 1;
 
         // hell percent rules
@@ -173,7 +173,7 @@ var rs = (function () {
         // distance object
         d : {
 
-            safeDist : 1000, // safe distance
+            sd : 1000, // safe distance
             hellDist : 3000, // the distance at witch the game is at max difficulty
             spawnRate : 10000, // how often an enemy spawn might happen
             lastSpawn : new Date()

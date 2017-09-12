@@ -22,17 +22,17 @@ drawHome = function (ctx) {
 
     var pos;
 
-    if (rs.d.d < rs.d.safeDist) {
+    if (rs.d.d < rs.d.sd) {
 
         pos = vp.makeVPRel({
                 x : 0,
                 y : 0
             });
 
-        ctx.fillStyle = 'rgba(0,64,128,' + (1 - (rs.d.d / rs.d.safeDist)).toFixed(2) + ')';
+        ctx.fillStyle = 'rgba(0,64,128,' + (1 - (rs.d.d / rs.d.sd)).toFixed(2) + ')';
         ctx.beginPath();
 
-        ctx.arc(pos.x, pos.y, rs.d.safeDist, 0, _.tau);
+        ctx.arc(pos.x, pos.y, rs.d.sd, 0, _.tau);
         ctx.fill();
 
     }
