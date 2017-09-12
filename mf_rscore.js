@@ -167,8 +167,6 @@ var rs = (function () {
 
             });
 
-            //_.l(rs.ps.units)
-
         },
 
         // distance object
