@@ -341,8 +341,8 @@ var rs = (function () {
             // set enemy collections for each collection
             this.ps.enemys = this.es;
             this.es.enemys = this.ps;
-			
-			api.a.fr();
+
+            api.a.fr();
 
         },
 

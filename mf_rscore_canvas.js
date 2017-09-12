@@ -136,10 +136,7 @@ var rscore_canvas = function () {
         ctx.textAlign = 'left';
         C.drawInfo([
 
-                'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead'),
-                'e count: ' + rs.es.units.length,
-                'e yaw: ' + (rs.es.units[0] ? rs.es.units[0].yaw : '')
-                //'skill points: ' + rs.a.sp
+                'hp: ' + (obj.hp ? obj.hp + '/' + obj.maxHP : 'dead')
 
             ], 10, 10, 20, '20px courier', '#00ff00');
 
