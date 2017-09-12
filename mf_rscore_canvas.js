@@ -48,7 +48,7 @@ var rscore_canvas = function () {
     w,
     h;
 
-    C.cls('rgba(' + Math.floor(255 * rs.d.hellPer) + ',0,0,1)');
+    C.cls('rgba(' + Math.floor(255 * rs.d.p) + ',0,0,1)');
 
     // draw ships
     C.hiDraw(function (ctx) {
@@ -121,7 +121,7 @@ var rscore_canvas = function () {
         ctx.fillStyle = '#afafaf';
         ctx.fillRect(220, 10, 200, 20);
         ctx.fillStyle = '#ff0000';
-        ctx.fillRect(220, 10, rs.d.hellPer * 200, 20);
+        ctx.fillRect(220, 10, rs.d.p * 200, 20);
 
         ctx.fillStyle = '#ffffff';
         ctx.textBaseline = 'top';
@@ -171,7 +171,7 @@ var rscore_canvas = function () {
         'map pos: ' + vp.x + ',' + vp.y,
         'player hp: ' + obj.hp + '/' + obj.maxHP,
         'hd: ' + rs.d.hd,
-        'hellPer: ' + rs.d.hellPer,
+        'p: ' + rs.d.p,
         'nextSpawn: ' + (rs.d.spawnRate - (new Date() - rs.d.lastSpawn)),
         'spawnRate: ' + rs.d.spawnRate
 

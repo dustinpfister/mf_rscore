@@ -44,12 +44,12 @@ var rs = (function () {
 
             x : Math.cos(r) * 500 + pl.x,
             y : Math.sin(r) * 500 + pl.y,
-            //delta : Math.floor(3.5 * api.d.hellPer + .5),
+            //delta : Math.floor(3.5 * api.d.p + .5),
             fireRate : 1000,
-            mt : 1 + 9 * api.d.hellPer,
-            ai_script : swai_stumpy, //api.d.hellPer < .2 ? swai_smug : swai_stumpy,
-            maxHP : 1 + Math.floor(9 * api.d.hellPer),
-            maxD : Math.floor(3.5 * api.d.hellPer + .5),
+            mt : 1 + 9 * api.d.p,
+            ai_script : swai_stumpy, //api.d.p < .2 ? swai_smug : swai_stumpy,
+            maxHP : 1 + Math.floor(9 * api.d.p),
+            maxD : Math.floor(3.5 * api.d.p + .5),
             onk : function () {
 
                 // start death animation
@@ -89,19 +89,19 @@ var rs = (function () {
         d.d = _.d(0, 0, pl.x + pl.w / 2, pl.y + pl.w / 2);
 
         // find hell percent
-        d.hellPer = (d.d - d.sd) / d.hd;
-        //d.hellPer = 1;
+        d.p = (d.d - d.sd) / d.hd;
+        //d.p = 1;
 
         // hell percent rules
-        if (d.hellPer < 0) {
-            d.hellPer = 0;
+        if (d.p < 0) {
+            d.p = 0;
         }
-        if (d.hellPer > 1) {
-            d.hellPer = 1;
+        if (d.p > 1) {
+            d.p = 1;
         }
 
         // spawn rate effected by hell percent
-        d.spawnRate = Math.floor(10000 - 9000 * d.hellPer);
+        d.spawnRate = Math.floor(10000 - 9000 * d.p);
 
         // spawn?
         if (new Date() - d.lastSpawn >= d.spawnRate) {
@@ -110,10 +110,10 @@ var rs = (function () {
             roll = _.r();
 
             // find min enemy count
-            this.me = Math.floor(5 * d.hellPer);
+            this.me = Math.floor(4 * d.p)+1;
 
             // if roll is less than hell percent
-            if (roll < d.hellPer) {
+            if (roll < d.p) {
 
                 eSpawn(pl);
 
@@ -138,7 +138,7 @@ var rs = (function () {
         rs.es.units.forEach(function (e) {
 
             // death if player is in safe zone
-            if (rs.d.hellPer === 0) {
+            if (rs.d.p === 0) {
 
                 e.hp = 0;
             }
@@ -173,6 +173,7 @@ var rs = (function () {
         // distance object
         d : {
 
+		    // p (hell percent)
             sd : 1000, // safe distance
             hd : 3000, // the distance at witch the game is at max difficulty
             spawnRate : 10000, // how often an enemy spawn might happen
