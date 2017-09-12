@@ -45,7 +45,7 @@ var rs = (function () {
             x : Math.cos(r) * 500 + pl.x,
             y : Math.sin(r) * 500 + pl.y,
             //delta : Math.floor(3.5 * api.d.p + .5),
-            fr : 1000,
+            fr : 1000 - 900 * api.d.p,
             mt : 1 + 9 * api.d.p,
             ai_script : swai_side, //swai_stumpy, //api.d.p < .2 ? swai_smug : swai_stumpy,
             maxHP : 1 + Math.floor(9 * api.d.p),
@@ -193,9 +193,9 @@ var rs = (function () {
         // abilities object
         a : {
 
-            sp : 5, // skill points
+            sp : 50, // skill points
             msp : 100, // max skill points
-            cd : 400, // cool down in ms
+            cd : 500, // cool down in ms
             lt : new Date(),
             ready : [], // list of ready options
 
