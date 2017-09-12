@@ -328,7 +328,7 @@ var rs = (function () {
             this.es = new ShipCollection({
                     faction : 'e',
                     ai : true,
-                    max : 5
+                    max : 12
                 });
 
             // set enemy collections for each collection
