@@ -13,9 +13,9 @@ done:
  * death animations
  * maxDelta ship value
  * special abilities
+ * better ship graphics
+ * draw location of safe zone
 
-  * better ship graphics
- 
 todo:
 
  * tweak enemy max turn in a way that still gives the player a chance to out turn them
@@ -23,7 +23,6 @@ todo:
  * tweak ai so that the ships do not bunch together
  * add yaw movement for player ship
  * add weapon up ability
- * draw location of safe zone 
 
  */
 
@@ -47,7 +46,7 @@ var rs = (function () {
             //delta : Math.floor(3.5 * api.d.p + .5),
             fireRate : 1000,
             mt : 1 + 9 * api.d.p,
-            ai_script : swai_stumpy, //api.d.p < .2 ? swai_smug : swai_stumpy,
+            ai_script : swai_side, //swai_stumpy, //api.d.p < .2 ? swai_smug : swai_stumpy,
             maxHP : 1 + Math.floor(9 * api.d.p),
             maxD : Math.floor(3.5 * api.d.p + .5),
             onk : function () {
@@ -110,7 +109,7 @@ var rs = (function () {
             roll = _.r();
 
             // find min enemy count
-            this.me = Math.floor(4 * d.p)+1;
+            this.me = Math.floor(4 * d.p) + 1;
 
             // if roll is less than hell percent
             if (roll < d.p) {
@@ -164,16 +163,19 @@ var rs = (function () {
 
                 delta : 0,
                 a : Math.PI * 1.5,
-                ai_script : swai_stumpy
+                ai_script : swai_side,
+                yaw : -1
 
             });
+
+            _.l(rs.ps.units)
 
         },
 
         // distance object
         d : {
 
-		    // p (hell percent)
+            // p (hell percent)
             sd : 1000, // safe distance
             hd : 3000, // the distance at witch the game is at max difficulty
             spawnRate : 10000, // how often an enemy spawn might happen
