@@ -25,7 +25,7 @@ drawHome = function (ctx) {
             y : 0
         });
 
-    ctx.fillStyle = '#0000ff';
+    ctx.fillStyle = 'rgba(0,0,255,'+(1-(rs.d.d / rs.d.safeDist)).toFixed(2)+')';
     ctx.beginPath();
 
     ctx.arc(pos.x, pos.y, rs.d.safeDist, 0, _.tau);
