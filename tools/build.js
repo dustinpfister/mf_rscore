@@ -7,7 +7,7 @@ var files = [
     'lib/mf_canvas_hack',
     'lib/mf_vp_hack',
     'lib/mf_swunits',
-    'lib/mf_swai_smug',
+    //'lib/mf_swai_smug',
     'lib/mf_swai_stumpy',
     'lib/mf_dplayer',
     'mf_rscore',
