@@ -170,7 +170,7 @@ var rscore_canvas = function () {
         'D : ' + rs.d.d.toFixed(2),
         'map pos: ' + vp.x + ',' + vp.y,
         'player hp: ' + obj.hp + '/' + obj.maxHP,
-        'hellDist: ' + rs.d.hellDist,
+        'hd: ' + rs.d.hd,
         'hellPer: ' + rs.d.hellPer,
         'nextSpawn: ' + (rs.d.spawnRate - (new Date() - rs.d.lastSpawn)),
         'spawnRate: ' + rs.d.spawnRate
