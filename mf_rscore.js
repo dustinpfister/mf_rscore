@@ -32,7 +32,7 @@ var rs = (function () {
     //y = 0,
 
     var pl,
-	score = 0,
+    score = 0,
 
     // enemy spawn
     eSpawn = function () {
@@ -69,8 +69,6 @@ var rs = (function () {
                 if (this.killedBy) {
 
                     rs.a.kill(this);
-					
-					
 
                 }
 
@@ -165,6 +163,7 @@ var rs = (function () {
             rs.ps.addShip({
                 //yaw : -1
                 delta : 0,
+                mt : 10,
                 a : _.pi * 1.5,
                 ai_script : swai_side
 
@@ -186,9 +185,9 @@ var rs = (function () {
         // abilities object
         a : {
 
-            sp : 5, // skill points
+            sp : 50, // skill points
             msp : 100, // max skill points
-            cd : 500, // cool down in ms
+            cd : 100, // cool down in ms
             lt : new Date(),
             ready : [], // list of ready options
 
@@ -328,7 +327,6 @@ var rs = (function () {
             // the New Player Ship Collection that will replace playerObj, and pShots
             this.ps = new ShipCollection({
                     faction : 'p',
-                    //ai : true,
                     max : 1
                 });
 
@@ -381,14 +379,14 @@ var rs = (function () {
                     // A
                     if (keys[2]) {
 
-                        pl.a += pl.mt;//_.pi / 180 * 10;
+                        pl.a += pl.mt; //_.pi / 180 * 10;
 
                     }
 
                     // D
                     if (keys[3]) {
 
-                        pl.a -= pl.mt;//_.pi / 180 * 10;
+                        pl.a -= pl.mt; //_.pi / 180 * 10;
                     }
 
                     //J
