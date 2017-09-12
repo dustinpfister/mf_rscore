@@ -8,7 +8,24 @@ var rscore_canvas = function () {
     obj,
     y,
     w,
-    h;
+    h,
+    basicShip = function (obj,ctx) {
+
+        ctx.save();
+        ctx.translate(obj.x + obj.hw, obj.y + obj.hh);
+        ctx.rotate(obj.a);
+
+        ctx.beginPath();
+        ctx.moveTo(-20, -20);
+        ctx.lineTo(20, 0);
+        ctx.lineTo(-20, 20);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.restore();
+
+    };
 
     C.cls('rgba(' + Math.floor(255 * rs.d.hellPer) + ',0,0,1)');
 
@@ -31,7 +48,10 @@ var rscore_canvas = function () {
             obj.y = pos.y;
             obj.f = '#00af88';
             //C.drawInfo([obj.a], 50, 20);
-            C.dBX(obj);
+            //C.dBX(obj);
+
+            ctx.strokeStyle = '#00ffff';
+            basicShip(obj,ctx);
 
         });
 
@@ -46,7 +66,10 @@ var rscore_canvas = function () {
             obj.y = pos.y;
             obj.s = '#000000';
             obj.f = '#af0000';
-            C.dBX(obj);
+            //C.dBX(obj);
+			ctx.strokeStyle = '#ff0000';
+			ctx.fillStyle = '#000000';
+			basicShip(obj,ctx);
 
         });
 
