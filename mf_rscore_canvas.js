@@ -90,6 +90,10 @@ var rscore_canvas = function () {
             ctx.fillStyle = '#000000';
             basicShip(obj, ctx);
 
+            ctx.fillStyle = 'rgba(255,255,255,.5)';
+            ctx.fillRect(obj.x, obj.y, obj.w, 5);
+            ctx.fillStyle = 'rgba(0,255,0,.5)';
+            ctx.fillRect(obj.x, obj.y, obj.w * (ship.hp / ship.maxHP), 5);
         });
 
         // player shots
