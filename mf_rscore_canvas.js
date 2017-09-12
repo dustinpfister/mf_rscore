@@ -16,7 +16,22 @@ var basicShip = function (obj, ctx) {
 
     ctx.restore();
 
-};
+},
+
+drawHome = function (ctx) {
+
+    var pos = vp.makeVPRel({
+            x : 0,
+            y : 0
+        });
+
+    ctx.fillStyle = '#0000ff';
+    ctx.beginPath();
+
+    ctx.arc(pos.x, pos.y, rs.d.safeDist, 0, _.tau);
+    ctx.fill();
+
+}
 
 // draw method
 var rscore_canvas = function () {
@@ -35,6 +50,7 @@ var rscore_canvas = function () {
         var pw = 640 / 8,
         ph = 480 / 8;
 
+        drawHome(ctx);
         C.drawGrid(pw - vp.x % pw, ph - vp.y % ph, 8, 8, pw, ph);
 
         // player ships
