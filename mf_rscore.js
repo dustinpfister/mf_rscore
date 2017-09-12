@@ -185,7 +185,7 @@ var rs = (function () {
         // abilities object
         a : {
 
-            sp : 100, // skill points
+            sp : 5, // skill points
             msp : 100, // max skill points
             cd : 500, // cool down in ms
             lt : new Date(),
@@ -214,15 +214,22 @@ var rs = (function () {
             // find ready options
             fr : function () {
 
+                var a,
+                i = 1;
+
                 this.ready = [];
 
                 for (var prop in this.opt) {
 
-                    if (this.sp >= this.opt[prop].c) {
+                    a = this.opt[prop];
 
-                        this.ready.push(this.opt[prop].c + ' : ' + this.opt[prop].disp);
+                    if (this.sp >= a.c) {
+
+                        this.ready.push(i + ' : ' + a.disp + ' (' + a.c + 'sp)');
 
                     }
+
+                    i++;
 
                 }
 
@@ -297,7 +304,6 @@ var rs = (function () {
         },
 
         me : 0, // min enemy count
-        //sp : 0, // skill points
         ps : {}, // player ship collection
         es : {}, // enemy ship collection
 
@@ -335,6 +341,8 @@ var rs = (function () {
             // set enemy collections for each collection
             this.ps.enemys = this.es;
             this.es.enemys = this.ps;
+			
+			api.a.fr();
 
         },
 
