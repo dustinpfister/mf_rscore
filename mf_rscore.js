@@ -2,46 +2,46 @@
  *
  *   red space core game logic
 
- 0.5.x - New Weapons
- 
+0.5.x - New Weapons
+
  * fillStyle added for player, and fill style changed for enemy's (quick fix for platforms that do not render the ships correctly)
- 
- 
- 
- todo:
- 
- 
- // app
+
+
+
+todo:
+
+
+// app
  * make a title screen
  * more than one game mode such as inverted?
  * hellPercent multipliers (difficulty does not stop at 1, but goes to 2x, 3x, so forth)
- 
- // rendering
+
+// rendering
  * maybe make a new canvas project that makes use of more than one canvas element
  * have a load state and use spreadsheets maybe?
  * batter ship designs
- 
- // ships
+
+// ships
  * more than one enemy ship type
  * level property
- 
- // ship AI
+
+// ship AI
  * revisit swai_sidewind ai script and make it more true to its name
- 
- // ship weapons
+
+// ship weapons
  * Weapon Objects
  * More than one Weapon in the game
- 
- // animations
+
+// animations
  * cool start game animation state
  * define an animation for shots
  * cooler animation for player death
  * new animations for enemy deaths
- 
- // sound
+
+// sound
  * some classic sounding pew pew effects
  * cool music deal when the game starts
- 
+
  */
 
 var rs = (function () {
@@ -193,7 +193,18 @@ var rs = (function () {
                 mt : 10,
                 fr : 800,
                 a : _.pi * 1.5,
-                ai_script : swai_side
+                ai_script : swai_side,
+                weapon : {
+
+                    shotDelta : 6,
+                    shotCount : 6,
+                    shotDist : function (i, sh) {
+
+                        return sh.a + _.pi / 6 * (i-2.5);
+
+                    }
+
+                }
 
             });
 
