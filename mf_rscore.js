@@ -9,8 +9,38 @@
  
  
  todo:
+ 
+ 
+ // app
+ * make a title screen
+ * more than one game mode such as inverted?
+ * hellPercent multipliers (difficulty does not stop at 1, but goes to 2x, 3x, so forth)
+ 
+ // rendering
+ * maybe make a new canvas project that makes use of more than one canvas element
+ * have a load state and use spreadsheets maybe?
+ * batter ship designs
+ 
+ // ships
+ * more than one enemy ship type
+ * level property
+ 
+ // ship AI
+ * revisit swai_sidewind ai script and make it more true to its name
+ 
+ // ship weapons
  * Weapon Objects
- * More than one Weapon
+ * More than one Weapon in the game
+ 
+ // animations
+ * cool start game animation state
+ * define an animation for shots
+ * cooler animation for player death
+ * new animations for enemy deaths
+ 
+ // sound
+ * some classic sounding pew pew effects
+ * cool music deal when the game starts
  
  */
 
