@@ -9,7 +9,8 @@
  
  
  todo:
- * fill
+ * Weapon Objects
+ * More than one Weapon
  
  */
 
