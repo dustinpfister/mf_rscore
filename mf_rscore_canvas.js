@@ -71,6 +71,7 @@ var rscore_canvas = function () {
             //C.dBX(obj);
 
             ctx.strokeStyle = '#00ffff';
+            ctx.fillStyle = '#0000ff';
             basicShip(obj, ctx);
 
         });
@@ -87,7 +88,7 @@ var rscore_canvas = function () {
 
             //C.dBX(obj);
             ctx.strokeStyle = '#ff0000';
-            ctx.fillStyle = '#000000';
+            ctx.fillStyle = '#2a2a2a';
             basicShip(obj, ctx);
 
             ctx.fillStyle = 'rgba(255,255,255,.5)';

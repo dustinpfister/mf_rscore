@@ -2,28 +2,15 @@
  *
  *   red space core game logic
 
-done:
- * enemy's purged if to far away from the player
- * create a new project called mf_swunits (space war units)
- * create a new project called mf_swai (space war ai)
- * one or more ai scripts that can be used with mf_swunits
- * fixed bug where a shots axis value defaults to -16 when given a value of 0.
- * size of shot taken into account when position a new shot
- * min enemy count that goes up with hellPer
- * death animations
- * maxDelta ship value
- * special abilities
- * better ship graphics
- * draw location of safe zone
-
-todo:
-
- * tweak enemy max turn in a way that still gives the player a chance to out turn them
- * 'jump' event (lost mechanic)
- * tweak ai so that the ships do not bunch together
- * add yaw movement for player ship
- * add weapon up ability
-
+ 0.5.x - New Weapons
+ 
+ * fillStyle added for player, and fill style changed for enemy's (quick fix for platforms that do not render the ships correctly)
+ 
+ 
+ 
+ todo:
+ * fill
+ 
  */
 
 var rs = (function () {
