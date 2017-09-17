@@ -191,18 +191,35 @@ var rs = (function () {
                 //yaw : -1
                 delta : 0,
                 mt : 10,
-                fr : 800,
+                //fr : 30,
                 a : _.pi * 1.5,
                 ai_script : swai_side,
                 weapon : {
 
+                    fr : 60,
                     shotDelta : 6,
-                    shotCount : 6,
-                    shotDist : function (i, sh) {
+                    shotCount : 1,
+                    shotDist : (function () {
 
-                        return sh.a + _.pi / 6 * (i-2.5);
+                        var d = 0,
+                        b = true;
+
+                        return function (i, sh) {
+
+                            d += b ? -4 : 4;
+
+                            if (d == -16 || d == 16) {
+
+                                b = !b;
+
+                            }
+
+                            return sh.a + _.pi / 180 * d;
+
+                        };
 
                     }
+                        ())
 
                 }
 
